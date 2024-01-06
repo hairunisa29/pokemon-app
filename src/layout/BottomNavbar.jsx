@@ -9,16 +9,16 @@ function BottomNavbar() {
         to="/"
         className="flex flex-col border-[1px] w-full p-2 items-center"
       >
-        <GoHomeFill className="text-5xl" />
-        <span className="text-xl font-bold">Home</span>
+        <GoHomeFill className="text-4xl" />
+        <span className="text-lg font-bold">Home</span>
       </Link>
 
       <Link
         to="/"
         className="flex flex-col border-[1px] w-full p-2 items-center"
       >
-        <MdOutlineCatchingPokemon className="text-5xl" />
-        <span className="text-xl font-bold">My Collection</span>
+        <MdOutlineCatchingPokemon className="text-4xl" />
+        <span className="text-lg font-bold">My Collection</span>
       </Link>
     </div>
   );
