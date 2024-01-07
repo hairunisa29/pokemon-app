@@ -4,7 +4,7 @@ This is a simple pokemon app for catching pokemon and save it to your own collec
 
 ### Built With
 
-* [![React][React.js]][React-url]
+* React
 
 ## Getting Started
 
