@@ -1,5 +1,5 @@
 import axios from "axios";
-import {useState } from "react";
+import { useState } from "react";
 import Card from "../components/Card";
 import { SyncLoader } from "react-spinners";
 import useSWR from "swr";
@@ -39,37 +39,38 @@ function Home() {
     revalidateOnFocus: false,
   });
 
-  function gotoNextPage() {
-    setCurrentUrl(nextPageUrl);
-  }
-
-  function gotoPrevPage() {
-    setCurrentUrl(prevPageUrl);
-  }
-
   return (
     <section>
       {isLoading ? (
         <div className="flex items-center justify-center">
-          <SyncLoader />
+          <SyncLoader color="#072AC8" />
         </div>
       ) : (
-        <div className="grid grid-cols-2 md:grid-cols-4 p-8 pt-4 pb-24 gap-4">
-          {dataPokemon.map((item) => (
-            <Card key={item.id} data={item} />
-          ))}
-          {gotoPrevPage && (
+        <div className="p-8 pt-4 pb-24">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {dataPokemon.map((item) => (
+              <Card key={item.id} data={item} />
+            ))}
+          </div>
+
+          <div className="flex justify-center gap-8 mt-8">
             <button
+              className={`w-28 p-2 rounded-lg text-sm text-white ${
+                !prevPageUrl
+                  ? "bg-blue-200"
+                  : "bg-primary hover:bg-white hover:border-primary hover:text-primary"
+              }  border-[1px]`}
               onClick={() => {
                 setDataPokemon([]);
                 setCurrentUrl(prevPageUrl);
               }}
+              disabled={!prevPageUrl}
             >
               Previous
             </button>
-          )}
-          {gotoNextPage && (
+
             <button
+              className="w-28 p-2 bg-primary rounded-lg text-sm text-white hover:bg-white border-[1px] hover:border-primary hover:text-primary"
               onClick={() => {
                 setDataPokemon([]);
                 setCurrentUrl(nextPageUrl);
@@ -77,7 +78,7 @@ function Home() {
             >
               Next
             </button>
-          )}
+          </div>
         </div>
       )}
     </section>
