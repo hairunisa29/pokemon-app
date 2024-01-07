@@ -16,11 +16,6 @@ function PokemonDetail() {
     `https://pokeapi.co/api/v2/pokemon/${name}`,
     fetchData,
     {
-      // onError: (error) => {
-      //   if (error) {
-      //     PopUpAlert("Error", error?.message, "error");
-      //   }
-      // },
       revalidateOnFocus: false,
     }
   );

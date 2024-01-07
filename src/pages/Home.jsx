@@ -27,11 +27,6 @@ function Home() {
   const fetchData = (url) => axios.get(url).then((response) => response.data);
 
   const { isLoading } = useSWR(currentUrl, fetchData, {
-    // onError: (error) => {
-    //   if (error) {
-    //     PopUpAlert("Error", error?.message, "error");
-    //   }
-    // },
     onSuccess: (data) => {
       setNextPageUrl(data.next);
       setPrevPageUrl(data.previous);
