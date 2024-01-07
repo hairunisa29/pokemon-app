@@ -4,7 +4,7 @@ import { MdOutlineCatchingPokemon } from "react-icons/md";
 
 function BottomNavbar() {
   return (
-    <div className="fixed bottom-0 flex md:hidden justify-end w-full">
+    <div className="fixed bottom-0 flex md:hidden justify-end w-full bg-white">
       <Link
         to="/"
         className="flex flex-col border-[1px] w-full p-2 items-center"
