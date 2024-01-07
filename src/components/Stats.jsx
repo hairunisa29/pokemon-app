@@ -7,12 +7,10 @@ function Stats({ stat, value }) {
         <span className="text-sm">{value}</span>
       </div>
 
-      <td>
-        <div
-          className="h-2 bg-secondary rounded-lg"
-          style={{ width: `${(maxWidth * value) / 100}px` }}
-        ></div>
-      </td>
+      <div
+        className="h-2 bg-secondary rounded-lg"
+        style={{ width: `${(maxWidth * value) / 100}px` }}
+      ></div>
     </div>
   );
 }
