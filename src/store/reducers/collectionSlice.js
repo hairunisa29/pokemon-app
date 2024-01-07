@@ -25,8 +25,11 @@ const collectionSlice = createSlice({
       localStorage.setItem("collection", JSON.stringify(state.collectionItems));
     },
     removeItem: (state, action) => {
-      const id = action.payload;
-      state.cartItems = state.cartItems.filter((item) => item._id !== id);
+      const { name, nickname } = action.payload;
+      state.collectionItems = state.collectionItems.filter(
+        (item) => item.name !== name && item.alias !== nickname
+      );
+      localStorage.setItem("collection", JSON.stringify(state.collectionItems));
     },
   },
 });
