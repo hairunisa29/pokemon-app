@@ -3,6 +3,7 @@ import { useState } from "react";
 import Card from "../components/Card";
 import { SyncLoader } from "react-spinners";
 import useSWR from "swr";
+import { Link } from "react-router-dom";
 
 function Home() {
   const [dataPokemon, setDataPokemon] = useState([]);
@@ -40,16 +41,18 @@ function Home() {
   });
 
   return (
-    <section>
+    <section className="px-8 pt-4 pb-24">
       {isLoading ? (
         <div className="flex items-center justify-center">
           <SyncLoader color="#072AC8" />
         </div>
       ) : (
-        <div className="p-8 pt-4 pb-24">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
             {dataPokemon.map((item) => (
-              <Card key={item.id} data={item} />
+              <Link to={`/pokemon/${item.name}`} key={item.id}>
+                <Card data={item} />
+              </Link>
             ))}
           </div>
 
