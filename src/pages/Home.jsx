@@ -41,7 +41,7 @@ function Home() {
   });
 
   return (
-    <section className="px-8 pt-4 pb-24">
+    <section className="px-4 md:px-8 pt-4 pb-24">
       {isLoading ? (
         <div className="flex items-center justify-center">
           <SyncLoader color="#072AC8" />
