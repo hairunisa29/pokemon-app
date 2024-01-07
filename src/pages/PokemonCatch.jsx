@@ -1,17 +1,22 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { SyncLoader } from "react-spinners";
 import useSWR from "swr";
 import BackgroundImg from "../assets/images/background.jpg";
 import Modal from "../components/Modal";
+import { addItem } from "../store/reducers/collectionSlice";
 
 function PokemonCatch() {
   const { name } = useParams();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const [showModal, setShowModal] = useState(false);
   const [nickname, setNickname] = useState("");
+
+  const { collectionItems } = useSelector((state) => state.collection);
 
   const fetchData = (url) => axios.get(url).then((response) => response.data);
 
@@ -35,12 +40,27 @@ function PokemonCatch() {
 
   const onSubmitModal = (e) => {
     e.preventDefault();
-    console.log(nickname);
+    const payload = {
+      ...data,
+      alias: nickname,
+    };
+    const foundNickname = collectionItems.find(
+      (item) => item.alias === nickname && item.name === name
+    );
+
+    if (foundNickname === undefined) {
+      dispatch(addItem(payload));
+      setShowModal(false);
+      setNickname("");
+      navigate("/");
+    } else {
+      alert(`Nickname ${nickname} already exist!`);
+    }
   };
 
   return (
     <section
-      className="h-full p-8"
+      className="p-8"
       style={{ backgroundImage: `url(${BackgroundImg})` }}
     >
       {isLoading ? (
