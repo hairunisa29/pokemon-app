@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { GoHomeFill } from "react-icons/go";
-import { MdOutlineCatchingPokemon } from "react-icons/md";
+import { CgPokemon } from "react-icons/cg";
 
 function BottomNavbar() {
   return (
@@ -14,10 +14,10 @@ function BottomNavbar() {
       </Link>
 
       <Link
-        to="/"
+        to="/my-collection"
         className="flex flex-col border-[1px] w-full p-2 items-center"
       >
-        <MdOutlineCatchingPokemon className="text-4xl" />
+        <CgPokemon className="text-4xl" />
         <span className="text-lg font-bold">My Collection</span>
       </Link>
     </div>

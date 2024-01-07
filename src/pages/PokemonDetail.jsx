@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { SyncLoader } from "react-spinners";
-import { MdOutlineCatchingPokemon } from "react-icons/md";
+import { CgPokemon } from "react-icons/cg";
 import useSWR from "swr";
 import Stats from "../components/Stats";
 import { colors } from "../data/static";
@@ -86,7 +86,7 @@ function PokemonDetail() {
             className="flex w-fit p-2 gap-2 self-center justify-center items-center rounded-lg text-white text-sm bg-primary transform transition duration-1000 hover:scale-105"
             onClick={() => navigate(`/catch/${name}`)}
           >
-            <MdOutlineCatchingPokemon className="text-2xl" />
+            <CgPokemon className="text-2xl" />
             Catch
           </button>
         </div>
