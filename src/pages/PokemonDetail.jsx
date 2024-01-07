@@ -60,7 +60,7 @@ function PokemonDetail() {
                 className="w-32 md:ml-20 md:w-56 self-center"
               />
 
-              <div>
+              <div className="flex flex-col gap-2">
                 {data.stats.map((item) => (
                   <Stats
                     key={item.stat.name}
@@ -79,7 +79,7 @@ function PokemonDetail() {
               {data.moves.slice(0, 5).map((item) => (
                 <span
                   key={item.move.name}
-                  className="p-2 rounded-lg text-xs text-white capitalize bg-[#FF844F]"
+                  className="p-2 rounded-lg text-xs text-white capitalize bg-[#F14B3D]"
                 >
                   {item.move.name}
                 </span>
