@@ -52,7 +52,7 @@ function PokemonDetail() {
               <img
                 src={data.sprites.other.dream_world.front_default}
                 alt={data.name}
-                className="w-32 md:ml-20 md:w-56 self-center"
+                className="w-32 max-h-40 md:ml-20 md:w-56 self-center"
               />
 
               <div className="flex flex-col gap-2">
